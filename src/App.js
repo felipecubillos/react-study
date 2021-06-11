@@ -1,4 +1,4 @@
-import ExpensesComponent from "./components/ExpensesComponent";
+import ExpensesComponent from "./components/Expenses/ExpensesComponent";
 import "./App.css";
 
 const expenses = [
