@@ -1,5 +1,6 @@
 import ExpensesComponent from "./components/Expenses/ExpensesComponent";
 import "./App.css";
+import NewExpense from "./components/NewExpense/NewExpense";
 
 const expenses = [
   { title: "food", date: new Date(2021, 6, 2), amount: 20.36 },
@@ -10,7 +11,7 @@ const expenses = [
 function App() {
   return (
     <div className="App">
-      <h1>This is the principal component</h1>
+      <NewExpense></NewExpense>
 
       <ExpensesComponent items={expenses}></ExpensesComponent>
     </div>
