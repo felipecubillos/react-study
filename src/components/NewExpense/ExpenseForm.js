@@ -20,28 +20,51 @@ const ExpenseForm = (props) => {
 
   // use spread operator to guarantee that dont lost other states different to title
   const titleOnchangeEvent = (event) => {
-    setUserInput({
-      ...userInput,
-      enteredTitle: event.target.value,
+    // setUserInput({
+    //   ...userInput,
+    //   enteredTitle: event.target.value,
+    // });
+
+    // a better way to ensure thar always have the state updated
+    setUserInput((prevState) => {
+      return { ...prevState, enteredTitle: event.target.value };
     });
   };
 
   const amountOnchangeEvent = (event) => {
-    setUserInput({
-      ...userInput,
-      enteredAmount: event.target.value,
+    // setUserInput({
+    //   ...userInput,
+    //   enteredAmount: event.target.value,
+    // });
+    setUserInput((prevState) => {
+      return { ...prevState, enteredAmount: event.target.value };
     });
   };
 
   const dateOnchangeEvent = (event) => {
-    setUserInput({
-      ...userInput,
-      enteredDate: event.target.value,
+    // setUserInput({
+    //   ...userInput,
+    //   enteredDate: event.target.value,
+    // });
+    setUserInput((prevState) => {
+      return { ...prevState, enteredDate: event.target.value };
     });
   };
 
+  const submitHandler = (event) => {
+    event.preventDefault(); // not send automaticaly data
+
+    const expensesData = {
+      title: userInput.enteredTitle,
+      amount: userInput.enteredAmount,
+      date: new Date(userInput.enteredDate),
+    };
+
+    console.log(expensesData);
+  };
+
   return (
-    <form>
+    <form onSubmit={submitHandler}>
       <div className="new-expense__controls">
         <div className="new-expense__control">
           <label>Title</label>
