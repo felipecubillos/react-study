@@ -61,6 +61,9 @@ const ExpenseForm = (props) => {
     };
 
     console.log(expensesData);
+    props.onSaveExpenseData(expensesData);
+
+    setUserInput({ enteredTitle: "", enteredAmount: "", enteredDate: "" });
   };
 
   return (
@@ -68,7 +71,11 @@ const ExpenseForm = (props) => {
       <div className="new-expense__controls">
         <div className="new-expense__control">
           <label>Title</label>
-          <input type="text" onChange={titleOnchangeEvent}></input>
+          <input
+            type="text"
+            value={userInput.enteredTitle}
+            onChange={titleOnchangeEvent}
+          ></input>
         </div>
         <div className="new-expense__control">
           <label>Amount</label>
@@ -76,6 +83,7 @@ const ExpenseForm = (props) => {
             type="number"
             min="0.01"
             step="0.01"
+            value={userInput.enteredAmount}
             onChange={amountOnchangeEvent}
           ></input>
         </div>
@@ -85,6 +93,7 @@ const ExpenseForm = (props) => {
             type="date"
             min="2019-01-01"
             max="2021-12-31"
+            value={userInput.enteredDate}
             onChange={dateOnchangeEvent}
           ></input>
         </div>

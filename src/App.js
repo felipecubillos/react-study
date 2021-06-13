@@ -3,15 +3,20 @@ import "./App.css";
 import NewExpense from "./components/NewExpense/NewExpense";
 
 const expenses = [
-  { title: "food", date: new Date(2021, 6, 2), amount: 20.36 },
-  { title: "clothes", date: new Date(2021, 5, 26), amount: 80.26 },
-  { title: "beer", date: new Date(2021, 6, 8), amount: 9.88 },
+  { id: "e1", title: "food", date: new Date(2021, 6, 2), amount: 20.36 },
+  { id: "e2", title: "clothes", date: new Date(2021, 5, 26), amount: 80.26 },
+  { id: "e3", title: "beer", date: new Date(2021, 6, 8), amount: 9.88 },
 ];
+
+const addExpenseHandler = (expense) => {
+  console.log("in app.js");
+  console.log(expense);
+};
 
 function App() {
   return (
     <div className="App">
-      <NewExpense></NewExpense>
+      <NewExpense onAddExpense={addExpenseHandler}></NewExpense>
 
       <ExpensesComponent items={expenses}></ExpensesComponent>
     </div>
